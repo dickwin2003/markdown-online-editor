@@ -10,6 +10,7 @@
 import Icons from '@assets/icons'
 
 export default {
+  name: 'SvgIcon',
   data() {
     return {}
   },

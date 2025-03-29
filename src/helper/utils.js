@@ -4,7 +4,7 @@ import Vue from 'vue'
 const $lodash = require('./lodash').default
 
 if (typeof String.prototype.startsWith !== 'function') {
-  Window.String.prototype.startsWith = function(prefix) {
+  Window.String.prototype.startsWith = function (prefix) {
     return this.slice(0, prefix.length) === prefix
   }
 }

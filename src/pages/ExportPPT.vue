@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import Reveal from 'reveal.js/js/reveal'
-import 'reveal.js/css/reset.css'
-import 'reveal.js/css/reveal.css'
-import 'reveal.js/css/theme/beige.css'
+import Reveal from 'reveal.js'
+import 'reveal.js/dist/reset.css'
+import 'reveal.js/dist/reveal.css'
+import 'reveal.js/dist/theme/beige.css'
 
 export default {
   name: 'export-ppt',
 
   data() {
     return {
-      savedMdContent: '',
+      savedMdContent: ''
     }
   },
 
@@ -56,23 +56,23 @@ export default {
             src: `${revealSourcePath}/plugin/markdown/marked.js`,
             condition: function () {
               return !!document.querySelector('[data-markdown]')
-            },
+            }
           },
           {
             src: `${revealSourcePath}/plugin/markdown/markdown.js`,
             condition: function () {
               return !!document.querySelector('[data-markdown]')
-            },
+            }
           },
           { src: `${revealSourcePath}/plugin/highlight/highlight.js`, async: true },
           { src: `${revealSourcePath}/plugin/search/search.js`, async: true },
           { src: `${revealSourcePath}/plugin/zoom-js/zoom.js`, async: true },
-          { src: `${revealSourcePath}/plugin/notes/notes.js`, async: true },
-        ],
+          { src: `${revealSourcePath}/plugin/notes/notes.js`, async: true }
+        ]
       })
-    },
+    }
     /* ---------------------Callback Event--------------------- */
-  },
+  }
 }
 </script>
 

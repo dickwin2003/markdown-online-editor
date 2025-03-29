@@ -13,7 +13,7 @@
 import HeaderNav from '@pages/partials/HeaderNav'
 
 export default {
-  name: 'Frame',
+  name: 'LayoutFrame',
   props: {},
   data() {
     return {}

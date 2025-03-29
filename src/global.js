@@ -15,7 +15,7 @@ import { Message } from 'element-ui'
 Vue.prototype.$_ = $lodash
 Vue.prototype.$utils = $utils
 Vue.prototype.$document = $document
-Vue.prototype.$message = options => Message(options)
+Vue.prototype.$message = (options) => Message(options)
 
 /* ------------------------Vue Global Components------------------------------ */
 import { Button, Dropdown, DropdownMenu, DropdownItem, Loading } from 'element-ui'
@@ -28,5 +28,5 @@ Vue.use(Loading)
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 
-import Icon from '@components/Icon'
-Vue.component('icon', Icon)
+import SvgIcon from '@components/Icon'
+Vue.component('svg-icon', SvgIcon)

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <header class="header-wrapper">
     <h1 class="header-area">
@@ -116,7 +118,7 @@ export default {
     return {
       isMobile: window.innerWidth <= 768,
       titleText: window.$appTitle,
-      exportTextMap,
+      exportTextMap
     }
   },
 
@@ -155,8 +157,8 @@ export default {
     },
     handleCommand(command) {
       this.$router.push(command)
-    },
-  },
+    }
+  }
 }
 </script>
 

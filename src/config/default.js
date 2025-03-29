@@ -7,20 +7,20 @@ const echartsConf = {
     subtext: '2019 年 6 月份',
     x: 'center',
     textStyle: {
-      color: '#f2f2f2',
-    },
+      color: '#f2f2f2'
+    }
   },
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)',
+    formatter: '{a} <br/>{b} : {c} ({d}%)'
   },
   legend: {
     orient: 'vertical',
     left: 'left',
     data: ['搜索引擎', '直接访问', '推荐', '其他', '社交平台'],
     textStyle: {
-      color: '#f2f2f2',
-    },
+      color: '#f2f2f2'
+    }
   },
   series: [
     {
@@ -33,17 +33,17 @@ const echartsConf = {
         { value: 4770, name: '直接访问' },
         { value: 2430, name: '推荐' },
         { value: 342, name: '其他' },
-        { value: 18, name: '社交平台' },
+        { value: 18, name: '社交平台' }
       ],
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
           shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-        },
-      },
-    },
-  ],
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
 }
 
 const echartsDemoJsonStr = JSON.stringify(echartsConf, null, 2)

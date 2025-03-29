@@ -71,7 +71,7 @@ function drawShadow(origCanvas) {
  * @desc 兼容使用 html2canvas 库不能完整捕获 SVG 问题；
  * @param {Dom} targetElem - 所要导出目标 DOM
  */
-const handleCaptureSvg = targetElem => {
+const handleCaptureSvg = (targetElem) => {
   const nodesToRecover = []
   const nodesToRemove = []
   const svgElem = targetElem.querySelectorAll('svg')
@@ -95,7 +95,7 @@ const handleCaptureSvg = targetElem => {
   }
 }
 
-export const generateScreenshot = async targetDom => {
+export const generateScreenshot = async (targetDom) => {
   handleCaptureSvg(targetDom)
   const domStyleObj = getComputedStyle(targetDom)
   TARGET_WIDTH = +domStyleObj.width.replace(`px`, '')

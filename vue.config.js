@@ -2,6 +2,7 @@
 
 const path = require('path')
 const SizePlugin = require('size-plugin')
+const { defineConfig } = require('@vue/cli-service')
 
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
@@ -10,7 +11,7 @@ function resolveRealPath(dir) {
 }
 
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
-module.exports = {
+module.exports = defineConfig({
   // Project deployment base
   // By default we assume your app will be deployed at the root of a domain,
   // e.g. https://www.my-app.com/
@@ -52,6 +53,7 @@ module.exports = {
       .set('@router', resolveRealPath('src/router'))
       .set('@mixins', resolveRealPath('src/mixins'))
       .set('@components', resolveRealPath('src/components'))
+      .set('@node_modules', resolveRealPath('node_modules'))
 
     // remove the old loader & add new one
     config.module.rules.delete('svg')
@@ -79,7 +81,7 @@ module.exports = {
         // webpack 将使用块的起源和名称来生成名称: `vendors~main.js`,如项目与"~"冲突，则可通过此值修改，Eg: '-'
         automaticNameDelimiter: '~',
         // cacheGroups is an object where keys are the cache group names.
-        name: true,
+        name: false,
         cacheGroups: {
           default: false,
           common: {
@@ -147,12 +149,14 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     https: false,
-    hotOnly: false,
+    hot: true,
+    client: {
+      overlay: true,
+    },
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
     proxy: null, // string | Object
-    before: () => {},
   },
 
   // options for 3rd party plugins
   pluginOptions: {},
-}
+})

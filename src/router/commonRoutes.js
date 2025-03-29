@@ -9,7 +9,7 @@ export default [
     meta: {
       title: window.$appTitle
     },
-    component: resolve => require(['@pages/Main'], resolve)
+    component: (resolve) => require(['@pages/Main'], resolve)
   },
   {
     path: '/about-arya',
@@ -23,7 +23,7 @@ export default [
         meta: {
           title: `关于 | ${window.$appTitle}`
         },
-        component: resolve => require(['@pages/About'], resolve)
+        component: (resolve) => require(['@pages/About'], resolve)
       }
     ]
   },

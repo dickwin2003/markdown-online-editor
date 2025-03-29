@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Error404',
+  name: 'PageNotFound',
 
   methods: {
     onBackPageClick() {

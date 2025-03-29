@@ -20,7 +20,7 @@ export default {
     const titleContent = this.title ? `${this.title} - ${this.siteTitle}` : `${this.siteTitle}`
     return {
       title: this.title,
-      titleTemplate: titleChunk => {
+      titleTemplate: (titleChunk) => {
         return titleChunk ? `${titleChunk} - ${this.siteTitle}` : `${this.siteTitle}`
       },
       meta: [

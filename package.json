@@ -4,6 +4,9 @@
   "author": "nicejade",
   "private": true,
   "description": "Arya，是一款基于 Vue、Vditor，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持 PPT 预览，以及绘制流程图、甘特图、时序图、任务列表、五线谱，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等。",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "yarn serve",
     "serve": "vue-cli-service serve --open",
@@ -14,7 +17,7 @@
     "test": "vue-cli-service test:unit",
     "testbuild": "vue-cli-service build --mode development",
     "deploy": "bash ./commands/deploy.sh",
-    "analyz": "NODE_ENV=production  npm_config_report=true npm run build",
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build",
     "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
     "format-code": "prettier-eslint --write \"src/**/*.{js,vue,css,scss}\"",
@@ -22,50 +25,55 @@
     "preview": "node ./commands/preview.js"
   },
   "dependencies": {
-    "canvg": "^2.0.0",
-    "element-ui": "^2.12.0",
-    "hint.css": "^2.6.0",
-    "html2canvas": "^1.0.0-rc.3",
-    "html2pdf.js": "^0.9.1",
-    "lodash": "4.17.15",
+    "canvg": "^3.0.10",
+    "element-ui": "^2.15.13",
+    "fitty": "^2.4.2",
+    "hint.css": "^2.7.0",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
+    "lodash": "4.17.21",
     "lodash.assign": "^4.2.0",
     "lodash.clonedeep": "^4.5.0",
-    "register-service-worker": "^1.0.0",
-    "reveal.js": "^3.8.0",
+    "register-service-worker": "^1.7.2",
+    "reveal.js": "4.5.0",
     "vditor": "3.10.8",
-    "vue": "^2.5.17",
-    "vue-meta": "^2.2.2",
-    "vue-router": "^3.1.3"
+    "vue": "^2.7.14",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^3.6.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-pwa": "^3.11.0",
-    "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
-    "@vue/test-utils": "^1.0.0-beta.29",
+    "@babel/core": "^7.26.10",
+    "@babel/eslint-parser": "^7.27.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-pwa": "^5.0.8",
+    "@vue/cli-plugin-unit-jest": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/test-utils": "^1.3.5",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^24.9.0",
-    "css-loader": "^3.4.2",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-vue": "^5.2.3",
-    "husky": "^3.0.5",
-    "less": "^3.11.1",
-    "less-loader": "^5.0.0",
-    "lint-staged": "^9.2.5",
-    "onchange": "^6.1.0",
-    "prettier-eslint-cli": "^5.0.0",
-    "size-plugin": "^2.0.0",
-    "svg-sprite-loader": "^4.1.6",
-    "svgo-loader": "2.2.1",
-    "vue-svg-loader": "^0.12.0",
-    "vue-template-compiler": "^2.5.17",
-    "webpack-bundle-analyzer": "3.5.0"
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.3",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.3",
+    "lint-staged": "^13.3.0",
+    "onchange": "^7.1.0",
+    "prettier-eslint-cli": "^7.1.0",
+    "size-plugin": "^3.0.0",
+    "svg-sprite-loader": "^6.0.11",
+    "svgo-loader": "4.0.0",
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.7.14",
+    "webpack-bundle-analyzer": "4.9.0"
   },
   "babel": {
     "presets": [
-      "@vue/app"
+      "@vue/cli-plugin-babel/preset"
     ]
   },
   "eslintConfig": {
@@ -75,7 +83,15 @@
     "root": true,
     "env": {
       "node": true,
-      "es6": true
+      "es6": true,
+      "browser": true
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false,
+      "sourceType": "module",
+      "ecmaVersion": 2020
     },
     "rules": {
       "no-console": 0,
@@ -104,16 +120,14 @@
       "plugin:vue/essential",
       "plugin:prettier/recommended",
       "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
+    ]
   },
   "prettier": {
     "singleQuote": true,
     "semi": false,
     "printWidth": 100,
-    "proseWrap": "never"
+    "proseWrap": "never",
+    "endOfLine": "lf"
   },
   "postcss": {
     "plugins": {

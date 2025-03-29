@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候...">
     <div id="khaleesi" class="vditor-preview" />
