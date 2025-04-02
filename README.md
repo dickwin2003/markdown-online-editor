@@ -6,7 +6,7 @@
 
 <div align="center">
   <strong>
-    📝 基于 <a href="https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada">Vue3</a>、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、Echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
+    📝 基于 <a href="https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada">Vue3</a>、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、Echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能
   </strong>
 </div>
 
