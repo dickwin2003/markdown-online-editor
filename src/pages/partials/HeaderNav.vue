@@ -203,7 +203,8 @@ export default {
           type: 'info'
         })
 
-        const response = await fetch('http://localhost:3000/api/convert-to-docx', {
+        const apiUrl = 'http://gzfc.site:3000'
+        const response = await fetch(`${apiUrl}/api/convert-to-docx`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
