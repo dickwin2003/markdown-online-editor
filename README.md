@@ -162,16 +162,6 @@ yarn deploy
 
 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [Vditor](https://github.com/b3log/vditor)：一款浏览器端的 Markdown 编辑器，同时也离不开 [Vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
-## 相关链接
-
-- [清风明月轩](https://www.thebettersites.com/?ref=github.com)
-- [逍遥自在轩](https://www.niceshare.site/?ref=github.com)
-- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
-- [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
-- [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
-- [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
-- [SegmentFault](https://segmentfault.com/u/jeffjade)
-- [X（Twitter）](https://x.com/MarshalXuan)
 
 ## License
 
