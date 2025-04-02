@@ -6,7 +6,7 @@
 
 <div align="center">
   <strong>
-    📝 基于 <a href="https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada">Vue2</a>、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、Echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
+    📝 基于 <a href="https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada">Vue3</a>、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、Echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
   </strong>
 </div>
 
@@ -138,7 +138,7 @@ docker-compose up -d
 
 ### 先决条件
 
-说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级  [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用  [Pnpm](https://pnpm.io/)  或  [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/)  作为首选包管理工具。
+说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级  [Node.js](https://nodejs.org/en/)（>= `20.*`），推荐使用  [Pnpm](https://pnpm.io/)  或  [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/)  作为首选包管理工具。
 
 ```bash
 # 🎉 克隆项目
@@ -147,6 +147,9 @@ cd markdown-online-editor
 
 # ➕ 安装依赖
 yarn
+
+# 🚧 安装包
+npm install
 
 # 🚧 开始开发
 yarn start
