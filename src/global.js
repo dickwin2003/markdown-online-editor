@@ -1,9 +1,10 @@
 /** @format */
 
-import Vue from 'vue'
-
-/* ------------------------Vue Global Config------------------------------ */
-Vue.config.productionTip = false
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import { createMetaManager, plugin as metaPlugin } from 'vue-meta'
+import App from './App.vue'
 
 /* ------------------------- Global Variable ------------------------------- */
 import { appTitle } from './config/constant'
@@ -11,22 +12,22 @@ window.$appTitle = appTitle
 
 /* ------------------------Vue Global Variable------------------------------ */
 import { $utils, $document, $lodash } from '@helper'
-import { Message } from 'element-ui'
-Vue.prototype.$_ = $lodash
-Vue.prototype.$utils = $utils
-Vue.prototype.$document = $document
-Vue.prototype.$message = (options) => Message(options)
 
-/* ------------------------Vue Global Components------------------------------ */
-import { Button, Dropdown, DropdownMenu, DropdownItem, Loading } from 'element-ui'
-Vue.use(Button)
-Vue.use(Dropdown)
-Vue.use(DropdownMenu)
-Vue.use(DropdownItem)
-Vue.use(Loading)
+// Create the app instance to configure plugins
+const app = createApp(App)
 
-import VueMeta from 'vue-meta'
-Vue.use(VueMeta)
+// Configure app instance
+app.config.productionTip = false
+app.config.globalProperties.$_ = $lodash
+app.config.globalProperties.$utils = $utils
+app.config.globalProperties.$document = $document
 
+// Use plugins
+app.use(ElementPlus)
+app.use(createMetaManager(), metaPlugin)
+
+// Register global components
 import SvgIcon from '@components/Icon'
-Vue.component('svg-icon', SvgIcon)
+app.component('SvgIcon', SvgIcon)
+
+export default app

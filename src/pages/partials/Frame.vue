@@ -10,32 +10,25 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import HeaderNav from '@pages/partials/HeaderNav'
 
-export default {
+export default defineComponent({
   name: 'LayoutFrame',
-  props: {},
-  data() {
-    return {}
-  },
-  created() {},
   components: {
     HeaderNav
-  },
-  methods: {}
-}
+  }
+})
 </script>
 
 <style lang="less">
 @import './../../assets/styles/style.less';
 .page-frame {
-  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   .main-content {
-    flex: 1;
-    display: flex;
+    width: 100%;
+    min-height: calc(100vh - @header-height);
     margin-top: @header-height;
   }
 }

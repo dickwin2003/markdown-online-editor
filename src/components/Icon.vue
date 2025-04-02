@@ -7,14 +7,11 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import Icons from '@assets/icons'
 
 export default {
   name: 'SvgIcon',
-  data() {
-    return {}
-  },
-
   props: {
     name: {
       type: String,
@@ -25,10 +22,10 @@ export default {
       }
     }
   },
-
-  computed: {
-    iconClass() {
-      return 'icon-' + this.name
+  setup(props) {
+    const iconClass = computed(() => 'icon-' + props.name)
+    return {
+      iconClass
     }
   }
 }

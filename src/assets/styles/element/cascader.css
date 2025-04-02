@@ -406,7 +406,9 @@
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  transition:
+    transform 0.3s,
+    -webkit-transform 0.3s;
   font-size: 14px;
 }
 .el-cascader .el-icon-arrow-down.is-reverse {

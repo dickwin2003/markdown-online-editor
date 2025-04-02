@@ -18,15 +18,21 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+
 export default {
   name: 'PageNotFound',
-
-  methods: {
-    onBackPageClick() {
-      this.$router.go(-1)
-    },
-    onGoHomeClick() {
-      this.$router.push('/')
+  setup() {
+    const router = useRouter()
+    const onBackPageClick = () => {
+      router.go(-1)
+    }
+    const onGoHomeClick = () => {
+      router.push('/')
+    }
+    return {
+      onBackPageClick,
+      onGoHomeClick
     }
   }
 }
@@ -54,101 +60,76 @@ export default {
   }
 }
 
-@keyframes left-four-animation {
-  0% {
-    transform: translateX(0);
+.error-404 {
+  width: 100%;
+  height: 100%;
+  background: #f8f8f9;
+  position: relative;
+  .error-404-body {
+    width: 476px;
+    height: 470px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .error-404-body-title {
+      text-align: center;
+      font-size: 9.2em;
+      font-weight: 700;
+      color: #2d8cf0;
+      height: 40%;
+      span {
+        display: inline-block;
+        color: #19be6b;
+        font-size: 2em;
+      }
+      .left-four {
+        animation: error-404-animation 2.8s ease 0s infinite;
+      }
+      .cener-zero {
+        animation: error-404-animation 2.8s ease 1.4s infinite;
+      }
+      .right-four {
+        animation: error-404-animation 2.8s ease 0.7s infinite;
+      }
+    }
+    .error-404-body-message {
+      display: block;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: #dddde2;
+    }
   }
-  20% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(0);
-  }
-  60% {
-    transform: translateX(-50px);
-  }
-  80% {
-    transform: translateX(-20px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes right-four-animation {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(60px);
-  }
-  40% {
-    transform: translateX(40px);
-  }
-  60% {
-    transform: translateX(0px);
-  }
-  80% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.error-404-body {
-  width: 96%;
-  max-width: 600px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 20px 0;
-  .error-404-body-title {
+  .error-404-btns {
     text-align: center;
-    font-size: 7rem;
-    font-weight: 700;
-    color: #2d8cf0;
-    height: 13rem;
-    line-height: 13rem;
-    .cener-zero {
+    padding: 20px 0;
+    margin-bottom: 40px;
+    a {
       display: inline-block;
-      color: #19be6b;
-      animation: error-404-animation 3s ease 0s infinite alternate;
-      margin: 0 -1rem;
+      margin: 0 4px;
+      width: 180px;
+      padding: 8px 24px;
+      border: 1px solid #dcdee2;
+      border-radius: 2px;
+      color: #515a6e;
+      font-size: 14px;
+      line-height: 30px;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: #2d8cf0;
+        border-color: #2d8cf0;
+      }
     }
-    .left-four {
-      margin: 0;
-      display: inline-block;
-      animation: left-four-animation 3s ease 0s infinite alternate;
-    }
-    .right-four {
-      margin: 0;
-      display: inline-block;
-      animation: right-four-animation 3s ease 0s infinite alternate;
-    }
-    .zero-icon {
-      width: 7rem;
-      height: 7rem;
-    }
-  }
-  .error-404-body-message {
-    display: block;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 12px;
-    color: #dddde2;
   }
 }
 
-@media (max-width: 375px) {
-  .el-card__body {
-    padding: 10px 0;
-  }
-  .error-404-body {
-    .error-404-body-title {
-      height: 12rem;
-      font-size: 6rem;
+@media (max-width: 768px) {
+  .error-404 {
+    .error-404-body {
+      width: 100%;
+      transform: translate(-50%, -50%) scale(0.8);
     }
   }
 }

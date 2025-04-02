@@ -4,7 +4,7 @@
   <div class="export-page">
     <div class="button-group">
       <el-button round @click="onBackToMainPage">返回主页</el-button>
-      <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
+      <el-button type="primary" round @click="onExportBtnClick">生成导出</el-button>
     </div>
     <PreviewVditor :pdata="pdata" />
   </div>
@@ -15,48 +15,35 @@ import html2pdf from 'html2pdf.js'
 import PreviewVditor from '@components/PreviewVditor'
 
 export default {
-  name: 'export-pdf',
-
+  name: 'ExportPdf',
+  components: {
+    PreviewVditor
+  },
   data() {
     return {
       isLoading: true,
       pdata: localStorage.getItem('vditorvditor')
     }
   },
-
   created() {},
-
-  components: {
-    PreviewVditor
-  },
-
   mounted() {},
-
   methods: {
     exportAndDownloadPdf(element, filename) {
-      const scale = window.devicePixelRatio
       const opt = {
         margin: 1,
         filename: filename,
-        html2canvas: { scale },
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       }
-      html2pdf()
-        .set(opt)
-        .from(element)
-        .save()
-        .then(() => {
-          this.isLoading = false
-        })
+      html2pdf().set(opt).from(element).save()
     },
-    /* ---------------------Callback Event--------------------- */
     onBackToMainPage() {
       this.$router.push('/')
     },
     onExportBtnClick() {
-      this.isLoading = true
-      const element = document.getElementsByClassName('vditor-preview')[0]
-      const filename = this.$utils.getExportFileName()
+      const element = document.querySelector('.vditor-reset')
+      const filename = `arya-${new Date().getTime()}.pdf`
       this.exportAndDownloadPdf(element, filename)
     }
   }

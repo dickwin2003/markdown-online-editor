@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-  <div class="index-page" v-loading="isLoading">
+  <div v-loading="isLoading" class="index-page">
     <HeaderNav />
     <div id="vditor" class="vditor" />
   </div>
@@ -13,8 +13,10 @@ import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
 
 export default {
-  name: 'index-page',
-
+  name: 'IndexPage',
+  components: {
+    HeaderNav
+  },
   data() {
     return {
       isLoading: true,
@@ -22,23 +24,16 @@ export default {
       vditor: null
     }
   },
-
   created() {
     this.setDefaultText()
     console.log = () => {}
   },
-
-  components: {
-    HeaderNav
-  },
-
   mounted() {
     this.initVditor()
     this.$nextTick(() => {
       this.isLoading = false
     })
   },
-
   methods: {
     initVditor() {
       const that = this

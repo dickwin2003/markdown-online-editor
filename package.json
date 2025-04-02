@@ -26,7 +26,9 @@
   },
   "dependencies": {
     "canvg": "^3.0.10",
-    "element-ui": "^2.15.13",
+    "cors": "^2.8.5",
+    "element-plus": "^2.5.6",
+    "express": "^5.1.0",
     "fitty": "^2.4.2",
     "hint.css": "^2.7.0",
     "html2canvas": "^1.4.1",
@@ -35,40 +37,42 @@
     "lodash.assign": "^4.2.0",
     "lodash.clonedeep": "^4.5.0",
     "register-service-worker": "^1.7.2",
-    "reveal.js": "4.5.0",
+    "reveal.js": "^5.2.1",
     "vditor": "3.10.8",
-    "vue": "^2.7.14",
-    "vue-meta": "^2.4.0",
-    "vue-router": "^3.6.5"
+    "vue": "^3.4.21",
+    "vue-meta": "^3.0.0-alpha.10",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/eslint-parser": "^7.27.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-pwa": "^5.0.8",
     "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
-    "@vue/test-utils": "^1.3.5",
+    "@vue/compiler-sfc": "^3.4.21",
+    "@vue/test-utils": "^2.4.4",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^29.7.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
     "less": "^4.2.0",
     "less-loader": "^11.1.3",
     "lint-staged": "^13.3.0",
     "onchange": "^7.1.0",
+    "prettier": "^3.2.5",
     "prettier-eslint-cli": "^7.1.0",
     "size-plugin": "^3.0.0",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "4.0.0",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.7.14",
     "webpack-bundle-analyzer": "4.9.0"
   },
   "babel": {
@@ -115,9 +119,11 @@
         }
       ]
     },
-    "plugins": [],
+    "plugins": [
+      "prettier"
+    ],
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/vue3-recommended",
       "plugin:prettier/recommended",
       "eslint:recommended"
     ]

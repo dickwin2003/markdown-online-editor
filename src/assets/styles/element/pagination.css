@@ -694,7 +694,9 @@
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  transition:
+    transform 0.3s,
+    -webkit-transform 0.3s;
   -webkit-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
   line-height: 16px;

@@ -9,23 +9,18 @@ import PreviewVditor from '@components/PreviewVditor'
 import AboutAryaMd from '@config/aboutArya'
 
 export default {
-  name: 'about-arya',
-
+  name: 'AboutArya',
+  components: {
+    PreviewVditor
+  },
   data() {
     return {
       isLoading: true,
       pdata: AboutAryaMd
     }
   },
-
   created() {},
-
-  components: {
-    PreviewVditor
-  },
-
   mounted() {},
-
   methods: {
     handleCallBack() {
       this.isLoading = false

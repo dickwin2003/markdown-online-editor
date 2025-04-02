@@ -2,6 +2,8 @@
 
 import Frame from '@pages/partials/Frame'
 import NotFound from '@pages/partials/NotFound'
+import Main from '@pages/Main'
+import About from '@pages/About'
 
 export default [
   {
@@ -9,7 +11,7 @@ export default [
     meta: {
       title: window.$appTitle
     },
-    component: (resolve) => require(['@pages/Main'], resolve)
+    component: Main
   },
   {
     path: '/about-arya',
@@ -19,11 +21,11 @@ export default [
     component: Frame,
     children: [
       {
-        path: '/',
+        path: '',
         meta: {
           title: `关于 | ${window.$appTitle}`
         },
-        component: (resolve) => require(['@pages/About'], resolve)
+        component: About
       }
     ]
   },
@@ -32,7 +34,7 @@ export default [
     redirect: '/'
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     meta: {
       title: 'Page Not Found'
     },

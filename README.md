@@ -89,6 +89,8 @@ cd markdown-online-editor
 yarn
 yarn global add pm2
 
+npm install
+
 # 🔧 构建产物
 yarn build
 

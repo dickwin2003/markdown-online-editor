@@ -159,8 +159,14 @@
   color: #303133;
   padding: 0 20px;
   cursor: pointer;
-  -webkit-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  -webkit-transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    color 0.3s;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -203,8 +209,14 @@
   color: #303133;
   padding: 0 20px;
   cursor: pointer;
-  -webkit-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  -webkit-transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    color 0.3s;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -244,7 +256,9 @@
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  transition:
+    transform 0.3s,
+    -webkit-transform 0.3s;
   font-size: 12px;
 }
 .el-submenu.is-active .el-submenu__title {

@@ -1,6 +1,6 @@
 /** @format */
 
-import Vue from 'vue'
+import { getCurrentInstance } from 'vue'
 const $lodash = require('./lodash').default
 
 if (typeof String.prototype.startsWith !== 'function') {
@@ -11,10 +11,12 @@ if (typeof String.prototype.startsWith !== 'function') {
 
 export default {
   resMsg(res) {
+    const instance = getCurrentInstance()
+    const lang = instance ? instance.appContext.config.globalProperties.$lang || 'zh' : 'zh'
     let key = {
       zh: 'Chinese',
       en: 'English'
-    }[Vue.config.lang]
+    }[lang]
     try {
       let obj = JSON.parse(res.Message)
       return obj[key] || obj.Chinese
@@ -49,8 +51,7 @@ export default {
     for (let key in query) {
       str.push(key + '=' + query[key])
     }
-    let paramStr = str.join('&')
-    return paramStr ? `${url}?${paramStr}` : url
+    return str.length ? url + '?' + str.join('&') : url
   },
 
   assembleExternalLink(url) {

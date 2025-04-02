@@ -142,7 +142,9 @@
   -webkit-transition: -webkit-transform 0.15s ease-in;
   transition: -webkit-transform 0.15s ease-in;
   transition: transform 0.15s ease-in;
-  transition: transform 0.15s ease-in, -webkit-transform 0.15s ease-in;
+  transition:
+    transform 0.15s ease-in,
+    -webkit-transform 0.15s ease-in;
 }
 .el-radio__original {
   opacity: 0;

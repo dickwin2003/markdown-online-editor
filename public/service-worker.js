@@ -1,3 +1,6 @@
+// This array will be populated by workbox during build time
+self.__WB_MANIFEST
+
 const HTMLToCache = '/'
 const version = 'v2.1.2'
 

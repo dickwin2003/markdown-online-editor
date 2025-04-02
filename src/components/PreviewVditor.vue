@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-  <div class="preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候...">
+  <div v-loading="isLoading" class="preview-vditor" element-loading-text="正在努力，请稍候...">
     <div id="khaleesi" class="vditor-preview" />
   </div>
 </template>
@@ -11,13 +11,7 @@ import Vditor from 'vditor'
 
 export default {
   name: 'PreviewVditor',
-
-  data() {
-    return {
-      isLoading: true
-    }
-  },
-
+  components: {},
   props: {
     pdata: {
       type: String,
@@ -25,19 +19,19 @@ export default {
       default: ''
     }
   },
-
+  data() {
+    return {
+      isLoading: true
+    }
+  },
   created() {
     this.$utils.updateHtmlStyle()
     this.setDefaultText()
   },
-
-  components: {},
-
   mounted() {
     this.initVditor()
     this.$utils.hideVditorTextarea()
   },
-
   methods: {
     initVditor() {
       const options = {
@@ -53,7 +47,6 @@ export default {
         this.isLoading = false
       })
     },
-
     setDefaultText() {
       localStorage.setItem('vditorkhaleesi', this.pdata)
     }

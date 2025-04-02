@@ -1,28 +1,21 @@
 /** @format */
 
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import beforeEachHooks from './beforeEachHooks'
 import RoutesMapConfig from './routes'
 import commonRoutesMap from './commonRoutes'
 
-Vue.use(Router)
-
-const routerInstance = new Router({
-  mode: 'history',
-  /* ~~~~~~~~~~~~~~~~~~~~~~~~@CHANGE@~~~~~~~~~~~~~~~~~~~~~~~~ */
-  /*
-    @desc: base,应用的基路径;如整个单页应用服务在 /app/ 下，base 就应该设为 "/app/";
-    @reference: https://router.vuejs.org/zh-cn/api/options.html#base
-  */
-  base: '/',
+// Create router instance with Vue 3 API
+const router = createRouter({
+  history: createWebHistory('/'),
   linkActiveClass: 'active',
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({ top: 0 }),
   routes: RoutesMapConfig.concat(commonRoutesMap)
 })
 
+// Apply router hooks
 Object.values(beforeEachHooks).forEach((hook) => {
-  routerInstance.beforeEach(hook)
+  router.beforeEach(hook)
 })
 
-export default routerInstance
+export default router

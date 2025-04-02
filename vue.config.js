@@ -1,10 +1,7 @@
 /** @format */
 
 const path = require('path')
-const SizePlugin = require('size-plugin')
 const { defineConfig } = require('@vue/cli-service')
-
-const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
 function resolveRealPath(dir) {
   return path.join(__dirname, dir)
@@ -30,7 +27,7 @@ module.exports = defineConfig({
   lintOnSave: true,
 
   // https://cli.vuejs.org/config/#runtimecompiler
-  runtimeCompiler: false,
+  runtimeCompiler: true,
 
   // babel-loader skips `node_modules` deps by default.
   // explicitly transpile a dependency with this option.
@@ -45,7 +42,7 @@ module.exports = defineConfig({
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
   chainWebpack: (config) => {
     config.resolve.alias
-      .set('vue$', 'vue/dist/vue.esm.js')
+      .set('vue$', 'vue/dist/vue.runtime.esm-bundler.js')
       .set('@helper', resolveRealPath('src/helper'))
       .set('@config', resolveRealPath('src/config'))
       .set('@pages', resolveRealPath('src/pages'))
@@ -64,7 +61,7 @@ module.exports = defineConfig({
       .loader('svg-sprite-loader')
       .options({
         name: '[name]-[hash:7]',
-        prefixize: true,
+        prefixize: true
       })
 
     const splitOptions = config.optimization.get('splitChunks')
@@ -89,16 +86,16 @@ module.exports = defineConfig({
             minChunks: 2,
             priority: -20,
             chunks: 'initial',
-            reuseExistingChunk: true,
+            reuseExistingChunk: true
           },
           element: {
-            name: 'element',
-            test: /[\\/]node_modules[\\/]element-ui[\\/]/,
+            name: 'element-plus',
+            test: /[\\/]node_modules[\\/]element-plus[\\/]/,
             chunks: 'initial',
             // 默认组的优先级为负数，以允许任何自定义缓存组具有更高的优先级（默认值为0）
-            priority: -30,
-          },
-        },
+            priority: -30
+          }
+        }
       })
     )
 
@@ -111,7 +108,12 @@ module.exports = defineConfig({
   },
 
   configureWebpack: {
-    plugins: [isProductionEnvFlag ? new SizePlugin() : () => {}],
+    plugins: [],
+    resolve: {
+      fallback: {
+        vue: require.resolve('vue/dist/vue.runtime.esm-bundler.js')
+      }
+    }
   },
 
   // use thread-loader for babel & TS in production build
@@ -132,15 +134,15 @@ module.exports = defineConfig({
       favicon16: 'img/icons/favicon-16x16.png',
       appleTouchIcon: 'img/icons/apple-touch-icon.png',
       maskIcon: 'img/icons/safari-pinned-tab.svg',
-      msTileImage: 'img/icons/mstile-150x150.png',
+      msTileImage: 'img/icons/mstile-150x150.png'
     },
     // configure the workbox plugin (GenerateSW or InjectManifest)
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
-      swSrc: 'public/service-worker.js',
+      swSrc: './public/service-worker.js'
       // ...other Workbox options...
-    },
+    }
   },
 
   // configure webpack-dev-server behavior
@@ -151,12 +153,12 @@ module.exports = defineConfig({
     https: false,
     hot: true,
     client: {
-      overlay: true,
+      overlay: true
     },
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
-    proxy: null, // string | Object
+    proxy: null // string | Object
   },
 
   // options for 3rd party plugins
-  pluginOptions: {},
+  pluginOptions: {}
 })
